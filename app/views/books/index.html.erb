@@ -1,0 +1,37 @@
+<div class="container">
+    
+    <div class="row">
+       <div class="col-lg-3">
+           <%= render "users/infomation", user: current_user %>
+       </div>
+       
+       <div class="col-lg-9">
+           <h2>Books</h2>
+
+           <table class="books-table col-lg-9">
+             <thead>
+               <th></th>
+               <th>Title</th>
+               <th>Opinion</th>
+               <th colspan="3"></th>
+             </thead>
+  
+             <tbody>
+               <tr>
+                <% @books.each do |book| %>
+                <td><%= attachment_image_tag @user, :profile_image, :fill, 45, 45, fallback: "no_image.jpg" %></td>
+                <td><%= book.title %></td>
+                <td><%= book.opinion %></td>
+              </tr>
+              <% end %>
+            </tbody>
+           </table>
+       </div>
+        
+    </div>
+    
+    <%= render "books/form", book: @book %>
+    
+</div>
+
+<%= paginate @books %>

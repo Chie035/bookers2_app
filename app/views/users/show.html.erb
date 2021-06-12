@@ -1,1 +1,16 @@
-<h1>User detail</h1>
+<div class="container">
+    
+<div class="row">
+    
+ <div class="col-lg-3">    
+  <%= render "users/infomation", user: @user %>
+ </div>
+ 
+ <div class="col-lg-9">
+  <h1>User detail</h1>
+ </div>
+</div>
+
+<%= render "books/form", book: @book %>
+
+</div>
