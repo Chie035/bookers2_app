@@ -8,6 +8,25 @@
  
  <div class="col-lg-9">
   <h1>User detail</h1>
+   <table class="books-table col-lg-9">
+             <thead>
+               <th></th>
+               <th>Title</th>
+               <th>Opinion</th>
+               <th colspan="3"></th>
+             </thead>
+  
+             <tbody>
+               <tr>
+                <% @books.each do |book| %>
+                <td><%= attachment_image_tag @user, :profile_image, :fill, 45, 45, fallback: "no_image.jpg" %></td>
+                <td><%= book.title %></td>
+                <td><%= book.opinion %></td>
+              </tr>
+              <% end %>
+            </tbody>
+           </table>
+       </div>
  </div>
 </div>
 
