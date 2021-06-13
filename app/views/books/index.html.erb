@@ -20,12 +20,13 @@
                <tr>
                 <% @books.each do |book| %>
                 <td><%= attachment_image_tag @user, :profile_image, :fill, 45, 45, fallback: "no_image.jpg" %></td>
-                <td><%= book.title %></td>
+                <td><%= @book.title %></td>
                 <td><%= book.opinion %></td>
               </tr>
               <% end %>
             </tbody>
            </table>
+           <%= paginate @books %>
        </div>
         
     </div>
@@ -34,4 +35,3 @@
     
 </div>
 
-<%= paginate @books %>

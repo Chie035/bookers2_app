@@ -20,16 +20,19 @@
                <tr>
                 <% @books.each do |book| %>
                 <td><%= attachment_image_tag @user, :profile_image, :fill, 45, 45, fallback: "no_image.jpg" %></td>
-                <td><%= book.title %></td>
+                <td><%= link_to book_path(@book.id) do %><%= book.title %><% end %></td>
                 <td><%= book.opinion %></td>
               </tr>
               <% end %>
             </tbody>
            </table>
+           
+           <%= paginate @books %>
+           
        </div>
  </div>
 </div>
 
-<%= render "books/form", book: @book %>
+<%= render "books/form", book: @book1 %>
 
 </div>
