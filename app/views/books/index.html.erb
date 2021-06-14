@@ -3,6 +3,7 @@
     <div class="row">
        <div class="col-lg-3">
            <%= render "users/infomation", user: current_user %>
+           
        </div>
        
        <div class="col-lg-9">
@@ -19,8 +20,8 @@
              <tbody>
                <tr>
                 <% @books.each do |book| %>
-                <td><%= attachment_image_tag @user, :profile_image, :fill, 45, 45, fallback: "no_image.jpg" %></td>
-                <td><%= @book.title %></td>
+                <td><%= link_to user_path(@user.id) do %><%= attachment_image_tag @user, :profile_image, :fill, 45, 45, fallback: "no_image.jpg" %><% end %></td>
+                <td><%= link_to book_path(book.id) do %><%= book.title %><% end %></td>
                 <td><%= book.opinion %></td>
               </tr>
               <% end %>
@@ -31,7 +32,7 @@
         
     </div>
     
-    <%= render "books/form", book: @book %>
+    <%= render "books/form", book: @book1 %>
     
 </div>
 
