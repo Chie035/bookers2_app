@@ -1,16 +1,16 @@
 <div class="container">
  <div class="row">
+  <P class="text-success"><%= flash[:success] %></P>
+ </div>
+ <div class="row">
   
-  <div class="col-lg-3">
-   <% if @book1.errors.any? %>
-         <% @book1.errors.full_messages.each do |message| %>
-         <%= message %>
-         <% end %>
-       <% end %>
+  <div class="col-md-3">
+  
    <%= render "users/infomation", user: @user %>
+   <%= render "books/form", book: @book1 %>
   </div>
   
-  <div class="col-lg-9">
+  <div class="col-md-8 offset-1">
       <h2>Book Detail</h2>
     <table class="w-100">
         <tbody>
@@ -30,7 +30,7 @@
     </table>  
   </div>
   
-  <%= render "books/form", book: @book1 %>
+  
   
  </div>
 </div>

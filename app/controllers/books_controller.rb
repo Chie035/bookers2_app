@@ -2,7 +2,7 @@ class BooksController < ApplicationController
     
     def index
         @books = Book.page(params[:page]).reverse_order
-        @book1 = Book.new
+        @book = Book.new
     
     end
   
@@ -14,7 +14,6 @@ class BooksController < ApplicationController
       flash[:success]= "successfully created!"
        redirect_to book_path(@book.id)
       else
-       @book1 = @book
        @books = Book.page(params[:page]).reverse_order
        render :index 
       end
