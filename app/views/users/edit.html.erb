@@ -3,6 +3,17 @@
         
         <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
         <h1>User info</h1>
+        
+        <% if @user.errors.any? %>
+          <div class="text-danger">
+          <h4><%=@user.errors.count%>errors prohibited this obj from being saved:</h4>
+          <% @user.errors.full_messages.each do |message| %>
+          <%= message %>
+          <% end %>
+         </div>
+       <% end %>
+     
+        
         <%= form_with model: @user, local:true do |f| %>
         <div class="form-group">
         <label for ="user_name">Name</label>
@@ -14,10 +25,10 @@
         </div>
         <div class="form-group">
         <label for ="user_introduction">Introduction</label>
-        <%= f.text_area :introduction, autofocus: true, class:"form-control", id:"user_introduction" %>
+        <%= f.text_area :introduction, autofocus: true, class:"form-control" %>
         </div>
         <div class="form-group">
-        <%= f.submit "Update user", class:"btn btn-secondary text-light mt-3" %>
+        <%= f.submit "Update User", class:"btn btn-secondary text-light mt-3" %>
         </div>
         <% end %>
         </div>

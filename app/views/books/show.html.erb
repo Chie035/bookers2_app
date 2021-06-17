@@ -1,5 +1,6 @@
 <P class="text-success"><%= flash[:success] %></P>
 
+
 <div class="container">
  <div class="row">
   
@@ -17,7 +18,7 @@
                  <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size: "100x100" %><br />
                 <%= link_to user_path(@user.id) do %><%= @user.name %><% end %>
                 <td><%= link_to book_path(@book.id) do %><%= @book.title %><% end %></td>
-                <td><%= @book.opinion %></td>
+                <td><%= @book.body %></td>
                 
                 <% if @book.user == current_user %>
                 <td><%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-success" %></tb>

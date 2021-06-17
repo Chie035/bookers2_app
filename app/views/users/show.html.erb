@@ -3,6 +3,9 @@
   <div class="row">
     
       <div class="col-md-3">  
+      <div class="text-success">
+        <%= flash[:success] %>
+         </div>
         <%= render "users/infomation", user: @user %>
          <%= render "books/form", book: @book1 %>
       </div>
@@ -22,7 +25,7 @@
                   <% @books.each do |book| %>
                   <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size: "60x60" %></td>
                   <td><%= link_to book_path(book.id) do %><%= book.title %><% end %></td>
-                  <td><%= book.opinion %></td>
+                  <td><%= book.body %></td>
                 </tr>
                 <% end %>
                </tbody>

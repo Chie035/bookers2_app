@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
     
     def index
-        @books = Book.page(params[:page]).reverse_order
+        @books = Book.all
         @book = Book.new
     
     end
@@ -14,7 +14,7 @@ class BooksController < ApplicationController
          flash[:success]= "successfully created!"
          redirect_to book_path(@book.id)
       else
-         @books = Book.page(params[:page]).reverse_order
+         @books = Book.all
          render :index 
       end
     end
@@ -48,7 +48,7 @@ class BooksController < ApplicationController
   private
   
   def book_params
-    params.require(:book).permit(:title, :opinion)
+    params.require(:book).permit(:title, :body)
   end
   
 end
