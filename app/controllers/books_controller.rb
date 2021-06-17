@@ -11,11 +11,11 @@ class BooksController < ApplicationController
       @book.user_id = current_user.id
       
       if @book.save
-      flash[:success]= "successfully created!"
-       redirect_to book_path(@book.id)
+         flash[:success]= "successfully created!"
+         redirect_to book_path(@book.id)
       else
-       @books = Book.page(params[:page]).reverse_order
-       render :index 
+         @books = Book.page(params[:page]).reverse_order
+         render :index 
       end
     end
   

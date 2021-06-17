@@ -1,14 +1,24 @@
 <div class="container">
-    <div class="row mx-auto">
+    <div class="row">
         
-        <div class="col-lg-4 mx-auto">
+        <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
         <h1>User info</h1>
         <%= form_with model: @user, local:true do |f| %>
-        <label for ="inputName" class="d-block">Name</label>
-        <%= f.text_field :name, autofocus: true, id:"inputName", placeholder: "名前" %>
-        <label for ="inputImage" class="d-block">Image</label>
+        <div class="form-group">
+        <label for ="user_name">Name</label>
+        <%= f.text_field :name, autofocus: true, class:"form-control", id:"user_name", placeholder: "名前" %>
+        </div>
+        <div class="form-group">
+        <label for ="user_image">Image</label>
         <%= f.attachment_field :profile_image %>
-        <%= f.submit "Update user", class:"btn btn-secondary text-light d-block mt-3" %>
+        </div>
+        <div class="form-group">
+        <label for ="user_introduction">Introduction</label>
+        <%= f.text_area :introduction, autofocus: true, class:"form-control", id:"user_introduction" %>
+        </div>
+        <div class="form-group">
+        <%= f.submit "Update user", class:"btn btn-secondary text-light mt-3" %>
+        </div>
         <% end %>
         </div>
         

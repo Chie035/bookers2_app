@@ -1,7 +1,6 @@
+<P class="text-success"><%= flash[:success] %></P>
+
 <div class="container">
- <div class="row">
-  <P class="text-success"><%= flash[:success] %></P>
- </div>
  <div class="row">
   
   <div class="col-md-3">
@@ -10,14 +9,14 @@
    <%= render "books/form", book: @book1 %>
   </div>
   
-  <div class="col-md-8 offset-1">
-      <h2>Book Detail</h2>
-    <table class="w-100">
+  <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+    <table class="table">
         <tbody>
             <tr>
-                 <td><%= attachment_image_tag @user, :profile_image, :fill, 45, 45, fallback: "no_image.jpg" %><br />
+                 <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size: "100x100" %><br />
                 <%= link_to user_path(@user.id) do %><%= @user.name %><% end %>
-                <td><%= @book.title %></td>
+                <td><%= link_to book_path(@book.id) do %><%= @book.title %><% end %></td>
                 <td><%= @book.opinion %></td>
                 
                 <% if @book.user == current_user %>
