@@ -27,6 +27,10 @@ class BooksController < ApplicationController
   
   def edit
     @book = Book.find(params[:id])
+    #直入力だとeditにアクセスできてしまうので以下の文は
+    if @book.user != current_user
+      redirect_to books_path
+    end
   end
   
   def update
